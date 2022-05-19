@@ -1,5 +1,10 @@
 {
   "usingComponents": {
-    "van-search": "@vant/weapp/search/index"
+    "van-search": "@vant/weapp/search/index",
+    "area-header":"/componets/area-header/index",
+    "song-item-v1":"/componets/song-item-v1/index",
+    "song-menu-area":"/componets/song-menu-area/index",
+    "ranking-area-item":"/componets/ranking-area-item/index"
+
   }
 }

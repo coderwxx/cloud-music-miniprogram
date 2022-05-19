@@ -1,0 +1,19 @@
+<wxs src="/util/format.wxs" module="format"></wxs>
+<area-header title="{{title}}" rightText="更多"></area-header>
+<scroll-view class="scroll-area" scroll-x>
+  <block wx:for="{{hotSongs}}" wx:key="id">
+    <view class="item" 
+    bindtap="handleSongItemClick"
+    data-id="{{item.id}}"
+    >
+      <view class="top">
+        <image class="hotsongs-image" src="{{item.coverImgUrl}}" mode="widthFix">
+          <view class="play-count">{{format.formatCount(item.playCount)}}</view>
+        </image>
+      </view>
+      <view class="bottom">
+        {{item.name}}
+      </view>
+    </view>
+  </block>
+</scroll-view>

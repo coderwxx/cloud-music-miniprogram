@@ -1,0 +1,29 @@
+.item{
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0 20rpx 0;
+}
+.item .info{
+  flex: 1;
+  padding-left: 20rpx;
+}
+.song-image {
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+.info .name {
+  font-size: 32rpx;
+  color: rgb(85, 85, 85);
+}
+.info .album-info{
+  color: rgb(153, 153, 153);
+  font-size: 24rpx;
+  margin-top: 16rpx;
+  
+}
+.arrow-right {
+  height: 50rpx;
+  width: 50rpx;
+}

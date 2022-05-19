@@ -1,26 +1,38 @@
 const BASE_URL = "http://123.207.32.32:9001"
-class HYRequest{
-  request(url,method,params){
-    return new Promise((resolve,reject)=>{
+const LOGIN_BASE_URL = "http://123.207.32.32:3000"
+const token = wx.getStorageSync('token')
+class HYRequest {
+  constructor(baseURL, authHeader = {}) {
+    this.baseURL = baseURL
+    this.authHeader = authHeader
+  }
+  request(url, method, params, header = {}, isAuth = false) {
+    const finalHeader = isAuth ? { ...this.authHeader, ...header } : header
+    return new Promise((resolve, reject) => {
       wx.request({
-       url: BASE_URL + url,
-       method,
-       data:params,
-       success(res){
-         resolve(res.data)
-       },
-       fail(error){
-         reject(error)
-       }
-     })
-   })
- }
- get(url,params){
-   return this.request(url,"GET",params)
- }
- post(url,data){
-  return this.request(url,"POST",data)
-} 
+        url: this.baseURL + url,
+        method,
+        header: finalHeader,
+        data: params,
+        success(res) {
+          resolve(res.data)
+        },
+        fail(error) {
+          reject(error)
+        }
+      })
+    })
+  }
+  get(url, params, header, isAuth) {
+    return this.request(url, "GET", params, header, isAuth)
+  }
+  post(url, data, header, isAuth) {
+    return this.request(url, "POST", data, header, isAuth)
+  }
 }
-const HyRequest = new HYRequest()
+const HyRequest = new HYRequest(BASE_URL)
+const LoginRequst = new HYRequest(LOGIN_BASE_URL, {token})
 export default HyRequest
+export {
+  LoginRequst
+}

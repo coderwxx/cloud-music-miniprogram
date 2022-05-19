@@ -14,17 +14,17 @@
       "list": [
         {
           "name": "",
-          "pathName": "pages/home-video/index",
+          "pathName": "pages/home-music/index",
           "query": "",
           "launchMode": "default",
           "scene": null
         },
         {
           "name": "",
-          "pathName": "pages/home-music/index",
-          "query": "",
-          "scene": null,
-          "launchMode": "default"
+          "pathName": "pages/music-player/index",
+          "query": "id=1901371647",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

@@ -2,3 +2,7 @@
 view {
   box-sizing: border-box;
 }
+page{
+  background-color: #fafafa;
+  padding: 0 20rpx;
+}

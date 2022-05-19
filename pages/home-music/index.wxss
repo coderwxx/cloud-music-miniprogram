@@ -1,1 +1,81 @@
 /* pages/home-music/index.wxss */
+page {
+  padding: 0 10rpx;
+  box-sizing: border-box;
+}
+
+.van-search {
+  padding: 10px 0 !important;
+}
+
+.van-search__content {
+  background-color: #fff !important;
+}
+
+.swiper {
+  width: 100%;
+  border-radius: 8rpx;
+  overflow: hidden;
+  transform: translateY(0);
+}
+
+.swiper-image {
+  width: 100%;
+}
+
+/* 播放栏的样式 */
+.player-bar {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fafafa;
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, .1);
+}
+
+
+
+.player-bar .album {
+  width: 45px;
+  height: 45px;
+  margin: 0 8px;
+  border-radius: 50%;
+  position: relative;
+  top: -8px;
+}
+
+.player-bar .text {
+  font-size: 14px;
+}
+
+.right .btn {
+  width: 30px;
+  height: 30px;
+  margin-right: 20rpx;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+/* album动画 */
+@keyframes albumRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+.album-anim{
+  animation: albumRotate 16s infinite linear;
+}
+
+.player-bar-placeholder{
+  height: 44px;
+}

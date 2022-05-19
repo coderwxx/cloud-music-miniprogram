@@ -1,7 +1,48 @@
 <!--pages/home-music/index.wxml-->
-<!-- <van-search
-  disabled
-  background="#fafafa"
-  shape="round"
-  placeholder="搜索您喜欢的歌曲"
-/> -->
+<!-- 搜索区域 -->
+<van-search disabled shape="round" placeholder="搜索您喜欢的歌曲" background="#fafafa" bind:click-input="handleSearchClick"></van-search>
+<!-- 轮播图区域 -->
+<swiper class="swiper" indicator-dots autoplay circular style="height: {{swiperHight}}px;">
+  <block wx:for="{{banners}}" wx:key="bannerId">
+    <swiper-item>
+      <image class="swiper-image" mode="widthFix" src="{{item.pic}}" bindload="handleSwiperImageLoaded"></image>
+    </swiper-item>
+  </block>
+</swiper>
+<!-- 推荐歌曲 -->
+<area-header title="推荐歌曲" rightText="更多" bind:click="handleMoreClick"></area-header>
+<block wx:for="{{recommendSongs}}" wx:key="id">
+  <song-item-v1 
+              item="{{item}}"
+              bindtap="handleSongItemClick"
+              data-index="{{index}}"></song-item-v1>
+</block>
+<!-- 热门歌单 -->
+  <song-menu-area 
+  hotSongs="{{hotSongsMenu}}" 
+  title ="热门歌单"
+  ></song-menu-area>
+  <!-- 推荐歌单 -->
+  <song-menu-area hotSongs="{{recommendSongsMenu}}" title ="推荐歌单"></song-menu-area>
+  <!-- 巅峰榜 -->
+<area-header title="巅峰榜" showRight="{{false}}">
+</area-header>
+<block wx:for="{{rankingData}}" wx:key="name">
+  <ranking-area-item item="{{item}}"  bindtap="handleRankingItemClick"
+  data-id="{{index}}">
+  </ranking-area-item>
+</block>
+<!-- 播放工具栏 -->
+<view class="player-bar-placeholder"  wx:if="{{currentSong.name}}"></view>
+<view class="player-bar" wx:if="{{currentSong.name}}" catchtap="handlePlaybarClick">
+<view class="left">
+  <image class="album album-anim"
+         style="animation-play-state: {{isPlaying ? 'running':'paused'}};"
+         src="{{currentSong.al.picUrl}}" mode="aspectFill" ></image>
+  <text class="text">{{currentSong.name}}</text>
+</view>
+<view class="right">
+<image class="btn" bindtap="changePlayStatusClick" src="/assets/images/music/{{isPlaying ? 'pause' : 'play' }}_icon.png"></image>
+<image class="btn" src="/assets/images/music/playlist_icon.png"></image>
+</view>
+</view>

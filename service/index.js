@@ -1,5 +1,5 @@
-const BASE_URL = "http://123.207.32.32:9001"
-const LOGIN_BASE_URL = "http://123.207.32.32:3000"
+const BASE_URL = "https://coderwhy-music.vercel.app/"
+const LOGIN_BASE_URL = "https://coderwhy-music.vercel.app/"
 const token = wx.getStorageSync('token')
 class HYRequest {
   constructor(baseURL, authHeader = {}) {

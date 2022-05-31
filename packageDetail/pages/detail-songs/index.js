@@ -31,6 +31,7 @@ Page({
     } else if (options.type === 'id') {
       const id = options.id
       getSongDetail(id).then(res=>{
+
         console.log(res.playlist);
         this.setData({
           songItemInfo:res.playlist,

@@ -1,5 +1,6 @@
 <view class="item" bindtap="handleSongItemClick">
   <image class="song-image" mode="widthFix" src="{{item.al.picUrl}}">
+
   </image>
   <view class="info">
     <view class="name">{{item.name}}</view>

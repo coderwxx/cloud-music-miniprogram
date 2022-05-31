@@ -12,10 +12,12 @@
 <!-- 推荐歌曲 -->
 <area-header title="推荐歌曲" rightText="更多" bind:click="handleMoreClick"></area-header>
 <block wx:for="{{recommendSongs}}" wx:key="id">
+
   <song-item-v1 
               item="{{item}}"
               bindtap="handleSongItemClick"
               data-index="{{index}}"></song-item-v1>
+             
 </block>
 <!-- 热门歌单 -->
   <song-menu-area 

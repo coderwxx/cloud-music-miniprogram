@@ -4,7 +4,7 @@ import { queryRect } from '../../util/query-rect'
 import throttle from '../../util/throttle'
 import { rankingStore, playerStore } from '../../store/index'
 const hrottleQueryRect = throttle(queryRect, 1000, { trailing: true })
-const rankingMap = { 0: 'newSongRanking', 2: 'originRanking', 3: 'upRanking' }
+const rankingMap = { 3779629: 'newSongRanking', 2884035: 'originRanking', 19723756: 'upRanking' }
 Page({
 
   /**
@@ -16,7 +16,7 @@ Page({
     recommendSongs: [],
     hotSongsMenu: [],
     recommendSongsMenu: [],
-    rankingData: { 0: {}, 2: {}, 3: {} },
+    rankingData: { 3779629: {}, 2884035: {}, 19723756: {} },
     currentSong: {},
     isPlaying: true
   },
@@ -84,6 +84,7 @@ Page({
 
     })
     getHotSong('流行').then(res => {
+      console.log(res);
       this.setData({
         recommendSongsMenu: res.playlists
       })
@@ -115,9 +116,9 @@ Page({
         recommendSongs
       })
     })
-    rankingStore.onState('newSongRanking', this.getRankingHandler(0))
-    rankingStore.onState('originRanking', this.getRankingHandler(2))
-    rankingStore.onState('upRanking', this.getRankingHandler(3))
+    rankingStore.onState('newSongRanking', this.getRankingHandler(3779629))
+    rankingStore.onState('originRanking', this.getRankingHandler(2884035))
+    rankingStore.onState('upRanking', this.getRankingHandler(19723756))
     // 播放器的监听
     playerStore.onStates(['currentSong', 'isPlaying'], ({ currentSong, isPlaying }) => {
       if (currentSong) this.setData({
